@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using BrockAllen.MembershipReboot;
 
-namespace Elevate.Accounts.Web
+namespace Elevate.Accounts.Web.Services
 {
     public class TwilloSmsEventHandler : SmsEventHandler
     {

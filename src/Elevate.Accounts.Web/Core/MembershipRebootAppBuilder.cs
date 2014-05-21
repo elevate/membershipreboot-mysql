@@ -1,14 +1,14 @@
-﻿using System.ComponentModel;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using BrockAllen.MembershipReboot;
 using BrockAllen.MembershipReboot.Ef;
 using BrockAllen.MembershipReboot.Owin;
 using Castle.Windsor;
+using Elevate.Accounts.Web.Components;
 using Elevate.Accounts.Web.Data.Migrations;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-namespace Elevate.Accounts.Web.Components
+namespace Elevate.Accounts.Web.Core
 {
     public static class MembershipRebootAppBuilder
     {

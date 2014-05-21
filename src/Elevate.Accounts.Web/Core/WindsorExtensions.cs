@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 
-namespace Elevate.Accounts.Web.Components
+namespace Elevate.Accounts.Web.Core
 {
     public static class WindsorExtensions
     {

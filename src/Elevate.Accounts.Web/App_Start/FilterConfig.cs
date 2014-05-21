@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Elevate.Accounts.Web.App_Start
+namespace Elevate.Accounts.Web
 {
     public class FilterConfig
     {

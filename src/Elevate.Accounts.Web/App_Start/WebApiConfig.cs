@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace Elevate.Accounts.Web.App_Start
+namespace Elevate.Accounts.Web
 {
     public static class WebApiConfig
     {

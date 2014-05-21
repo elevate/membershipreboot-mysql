@@ -64,6 +64,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Windsor.Mvc">
+      <HintPath>..\..\packages\Castle.Windsor.Mvc.1.3.0.0\lib\net45\Castle.Windsor.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -213,11 +216,11 @@
     <Compile Include="Areas\UserAccount\Models\SendUsernameReminderInputModel.cs" />
     <Compile Include="Areas\UserAccount\UserAccountAreaRegistration.cs" />
     <Compile Include="Components\AccountsWebInstaller.cs" />
-    <Compile Include="Components\ControllerExtensions.cs" />
-    <Compile Include="Components\MembershipRebootAppBuilder.cs" />
+    <Compile Include="Core\ControllerExtensions.cs" />
+    <Compile Include="Core\MembershipRebootAppBuilder.cs" />
     <Compile Include="Components\MembershipRebootContainerConfigurator.cs" />
     <Compile Include="Components\MvcConfigurator.cs" />
-    <Compile Include="Components\WindsorExtensions.cs" />
+    <Compile Include="Core\WindsorExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Core\WindsorControllerFactory.cs" />
     <Compile Include="Data\Migrations\201403032007363_v7_InitialCreate.cs" />
@@ -236,9 +239,6 @@
     <Compile Include="Data\MySqlConfiguration.cs" />
     <Compile Include="Data\MySqlHistoryContext.cs" />
     <Compile Include="Data\MySqlInitializer.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ElevateAuthorizationServerAppBuilder.cs" />
     <Compile Include="Services\ElevateAuthorizationServerProvider.cs" />
@@ -303,7 +303,6 @@
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.less</DependentUpon>
     </Content>
-    <Content Include="Global.asax" />
     <Content Include="Areas\UserAccount\Views\Login\Index.cshtml" />
     <Content Include="Areas\UserAccount\Views\Logout\Index.cshtml" />
     <Content Include="Areas\UserAccount\Views\Shared\EditorTemplates\Object.cshtml" />
@@ -339,12 +338,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Elevate.Core\Elevate.Core.csproj">
-      <Project>{274c696a-f464-447a-b0cc-189456290333}</Project>
-      <Name>Elevate.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data\Migrations\201403032007511_v7_Indexes.resx">

@@ -3,6 +3,7 @@ using Castle.MicroKernel.Lifestyle;
 using Castle.Windsor;
 using Elevate.Accounts.Web;
 using Elevate.Accounts.Web.Components;
+using Elevate.Accounts.Web.Core;
 using Elevate.Accounts.Web.Services;
 using log4net;
 using Microsoft.Owin;
@@ -32,7 +33,6 @@ namespace Elevate.Accounts.Web
             });
 
             app.UseElevateAuthorizationServer(Container);
-
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "External", 
@@ -42,8 +42,8 @@ namespace Elevate.Accounts.Web
             {
                 SignInAsAuthenticationType ="External"
             });
-
             app.UseElevateMembership(Container);
+            app.UseMvc(Container);
         }
     }
 }

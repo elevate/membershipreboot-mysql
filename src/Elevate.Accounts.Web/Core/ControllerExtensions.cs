@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace Elevate.Accounts.Web.Components
+namespace Elevate.Accounts.Web.Core
 {
     ///<summary>
     /// Static class containing extension methods for controllers

@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Elevate.Accounts.Web.App_Start
+namespace Elevate.Accounts.Web
 {
     public class IgnoreRoutes
     {
