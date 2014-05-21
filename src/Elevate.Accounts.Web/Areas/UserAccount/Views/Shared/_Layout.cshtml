@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    
+    <script type="text/javascript" src="/accounts.web/Scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript">        
+
+        $(function() {
+
+            var headers = {
+                Authorization: 'Bearer ' + 'WOiZs1I2HqmHb_TkcDEKt8CmG_Ru3q3LsVTbSrNZzFe4y6O8RT1v_shQWnnnhbQO2qIe7dPTIRfnMiwUBCfmdxT6f95hKRCZ4gLsoNWy0eSuntHsUJdNHqbgqhxE2DA3YFpAEE9wo8CmWmvxr1Tmm27AEpnoJryGR7hZspdPTvnqgBj2naoV79t8HuO1-XUUGBUk79iuMuES7AMVUr2zmHM7OiwSlpCoMAK23gwgpz7aZ0vam013kBvnZfvghAL8LITyLOyiLAD_1GgdDoe7g37wSCAzUsepzUWHneolR3rYPpFH21yq9AudY6ayVKH_psp07P4qEGKjEQmqPYrXIXjoaC-eaNGh9ATjYhuRY915mf_HRLCorwefc3BsmM8XjZwFO1l1bckOV7292F6OP3qIa5mMYyY3QFk5AjCtH4HN8TIEYlvD6I1K0bsbo2Dx'
+            };
+            
+
+            $.ajax({
+                type: "POST",
+                url: "/accounts.web/token",
+                data: {
+                    grant_type:'password',
+                    username:'mickdelaney@gmail.com',
+                    password:'SymCop06'
+                },
+                success: function (data) {
+                    console.log(data); // server response
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/management/home",
+                        success: function(result) {
+                            console.log(result); // server response
+                        },
+                        contentType: "application/json",
+                        headers: {
+                            Authorization: 'Bearer ' + data.access_token
+                        }
+                    });
+                },
+                contentType: "application/json",
+                headers: {
+                    Authorization: 'Basic bWlja2RlbGFuZXlAZ21haWwuY29tOlN5bUNvcDA2'
+                }
+            });
+        });
+        
+    </script>
+
+</head>
+<body>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li>@Html.ActionLink("Logout", "Index", "Logout")</li>
+            <li>@Html.ActionLink("Verify Your Email Account", "Verify", "Register")</li>
+            <li>@Html.ActionLink("Change Password", "Index", "ChangePassword")</li>
+            <li>@Html.ActionLink("Change Password Reset Secret", "Index", "ChangeSecretQuestion")</li>
+            <li>@Html.ActionLink("Change Username", "Index", "ChangeUsername")</li>
+            <li>@Html.ActionLink("Change Email", "Index", "ChangeEmail")</li>
+            <li>@Html.ActionLink("Change Mobile Phone Number", "Index", "ChangeMobile")</li>
+            <li>@Html.ActionLink("Configure Client Certificates", "Index", "Certificate")</li>
+            <li>@Html.ActionLink("Configure Two Factor Authentication", "Index", "TwoFactorAuth")</li>
+            <li>@Html.ActionLink("Manage external provider", "Manage", "LinkedAccount")</li>
+            <li>@Html.ActionLink("Close Account", "Index", "CloseAccount")</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink("Login", "Index", "Login")</li>
+            <li>@Html.ActionLink("Login with external provider", "Index", "LinkedAccount")</li>
+            <li>@Html.ActionLink("Email Username", "Index", "SendUsernameReminder")</li>
+            <li>@Html.ActionLink("Register", "Index", "Register")</li>
+            <li>@Html.ActionLink("Reset Password", "Index", "PasswordReset")</li>
+        }
+        <li>@Html.ActionLink("Admin Account Lookup", "Index", "Home", new { area="Admin" }, null)</li>
+    </ul>
+
+
+    @RenderBody()
+
+</body>
+</html>
